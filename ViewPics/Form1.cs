@@ -8,5 +8,25 @@ namespace ViewPics
         {
             InitializeComponent();
         }
+
+        private void readDir_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void randomDir_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void prev_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void next_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

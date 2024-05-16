@@ -52,6 +52,7 @@
             this.readDir.TabIndex = 1;
             this.readDir.Text = "取込";
             this.readDir.UseVisualStyleBackColor = true;
+            this.readDir.Click += new System.EventHandler(this.readDir_Click);
             // 
             // pictureBox1
             // 
@@ -69,6 +70,7 @@
             this.prev.TabIndex = 3;
             this.prev.Text = "←";
             this.prev.UseVisualStyleBackColor = true;
+            this.prev.Click += new System.EventHandler(this.prev_Click);
             // 
             // next
             // 
@@ -78,6 +80,7 @@
             this.next.TabIndex = 4;
             this.next.Text = "→";
             this.next.UseVisualStyleBackColor = true;
+            this.next.Click += new System.EventHandler(this.next_Click);
             // 
             // randomDir
             // 
@@ -87,6 +90,7 @@
             this.randomDir.TabIndex = 5;
             this.randomDir.Text = "ランダム";
             this.randomDir.UseVisualStyleBackColor = true;
+            this.randomDir.Click += new System.EventHandler(this.randomDir_Click);
             // 
             // Form1
             // 
