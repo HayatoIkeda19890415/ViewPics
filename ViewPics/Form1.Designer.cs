@@ -39,16 +39,16 @@
             // 
             // folderpath
             // 
-            this.folderpath.Location = new System.Drawing.Point(47, 17);
+            this.folderpath.Location = new System.Drawing.Point(12, 7);
             this.folderpath.Name = "folderpath";
             this.folderpath.Size = new System.Drawing.Size(538, 19);
             this.folderpath.TabIndex = 0;
             // 
             // readDir
             // 
-            this.readDir.Location = new System.Drawing.Point(607, 15);
+            this.readDir.Location = new System.Drawing.Point(556, 5);
             this.readDir.Name = "readDir";
-            this.readDir.Size = new System.Drawing.Size(75, 23);
+            this.readDir.Size = new System.Drawing.Size(41, 23);
             this.readDir.TabIndex = 1;
             this.readDir.Text = "取込";
             this.readDir.UseVisualStyleBackColor = true;
@@ -57,18 +57,18 @@
             // pictureBox1
             // 
             this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(47, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(716, 370);
+            this.pictureBox1.Size = new System.Drawing.Size(776, 404);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // prev
             // 
-            this.prev.Location = new System.Drawing.Point(12, 160);
+            this.prev.Location = new System.Drawing.Point(662, 3);
             this.prev.Name = "prev";
-            this.prev.Size = new System.Drawing.Size(29, 52);
+            this.prev.Size = new System.Drawing.Size(29, 23);
             this.prev.TabIndex = 3;
             this.prev.Text = "←";
             this.prev.UseVisualStyleBackColor = true;
@@ -76,9 +76,9 @@
             // 
             // next
             // 
-            this.next.Location = new System.Drawing.Point(769, 160);
+            this.next.Location = new System.Drawing.Point(697, 5);
             this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(28, 52);
+            this.next.Size = new System.Drawing.Size(28, 23);
             this.next.TabIndex = 4;
             this.next.Text = "→";
             this.next.UseVisualStyleBackColor = true;
@@ -86,9 +86,9 @@
             // 
             // randomDir
             // 
-            this.randomDir.Location = new System.Drawing.Point(688, 15);
+            this.randomDir.Location = new System.Drawing.Point(603, 3);
             this.randomDir.Name = "randomDir";
-            this.randomDir.Size = new System.Drawing.Size(75, 23);
+            this.randomDir.Size = new System.Drawing.Size(53, 23);
             this.randomDir.TabIndex = 5;
             this.randomDir.Text = "ランダム";
             this.randomDir.UseVisualStyleBackColor = true;

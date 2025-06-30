@@ -17,13 +17,13 @@ namespace ViewPics
                 ctrl.PreviewKeyDown += Ctrl_PreviewKeyDown;
             }
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+            this.Resize += new System.EventHandler(Form1_Resize);
         }
 
         private void readDir_Click(object sender, System.EventArgs e)
         {
             LoadImageFiles(folderpath.Text.ToString());
             DisplayCurrentImage();
-            this.ActiveControl = null;
         }
 
         private void randomDir_Click(object sender, System.EventArgs e)
@@ -87,6 +87,17 @@ namespace ViewPics
             {
                 e.IsInputKey = true; // このキーはフォームに渡してほしい、と明示
             }
+        }
+
+        private void Form1_Resize(object sender, System.EventArgs e)
+        {
+            int margin = 10;
+            int topAreaHeight = 20;
+
+            pictureBox1.Left = margin;
+            pictureBox1.Top = topAreaHeight + margin;
+            pictureBox1.Width = this.ClientSize.Width - 2 * margin;
+            pictureBox1.Height = this.ClientSize.Height - topAreaHeight - 2 * margin;
         }
     }
 }
