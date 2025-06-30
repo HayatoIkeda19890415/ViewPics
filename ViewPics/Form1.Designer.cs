@@ -34,6 +34,7 @@
             this.prev = new System.Windows.Forms.Button();
             this.next = new System.Windows.Forms.Button();
             this.randomDir = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Location = new System.Drawing.Point(12, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(776, 404);
+            this.pictureBox1.Size = new System.Drawing.Size(922, 549);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -76,7 +77,7 @@
             // 
             // next
             // 
-            this.next.Location = new System.Drawing.Point(697, 5);
+            this.next.Location = new System.Drawing.Point(697, 3);
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(28, 23);
             this.next.TabIndex = 4;
@@ -94,11 +95,21 @@
             this.randomDir.UseVisualStyleBackColor = true;
             this.randomDir.Click += new System.EventHandler(this.randomDir_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(731, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "0/0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(957, 595);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.randomDir);
             this.Controls.Add(this.next);
             this.Controls.Add(this.prev);
@@ -122,6 +133,7 @@
         private System.Windows.Forms.Button prev;
         private System.Windows.Forms.Button next;
         private System.Windows.Forms.Button randomDir;
+        private System.Windows.Forms.Label label1;
     }
 }
 

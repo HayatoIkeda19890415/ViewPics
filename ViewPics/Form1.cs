@@ -101,6 +101,7 @@ namespace ViewPics
         {
             if (imageFiles.Length > 0 && File.Exists(imageFiles[currentIndex]))
             {
+                label1.Text = (currentIndex + 1).ToString() + " / " + imageFiles.Length.ToString();
                 pictureBox1.ImageLocation = imageFiles[currentIndex];
             }
         }
