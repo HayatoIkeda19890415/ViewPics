@@ -7,6 +7,9 @@ namespace ViewPics
     {
         private string[] imageFiles;
         private int currentIndex = 0;
+        private int listCount = 0;
+        private string listPath = Path.Combine(Application.StartupPath, "list.txt");
+
 
         public Form1()
         {
@@ -18,6 +21,7 @@ namespace ViewPics
             }
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
             this.Resize += new System.EventHandler(Form1_Resize);
+            listCount = CountLines(listPath);
         }
 
         private void readDir_Click(object sender, System.EventArgs e)
@@ -28,7 +32,23 @@ namespace ViewPics
 
         private void randomDir_Click(object sender, System.EventArgs e)
         {
-
+            int targetIndex = new System.Random().Next(1, listCount + 1); // maxを含む
+            using (var reader = new StreamReader(listPath, System.Text.Encoding.GetEncoding(932)))
+            {
+                string line;
+                int readIndex = 0;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (readIndex == targetIndex)
+                    {
+                        folderpath.Text = line;
+                        break;
+                    }
+                    readIndex++;
+                }
+            }
+            currentIndex = 0;
+            readDir_Click(sender, e);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -40,6 +60,10 @@ namespace ViewPics
             else if (e.KeyCode == Keys.Left)
             {
                 prev_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.PageDown)
+            {
+                randomDir_Click(sender, e);
             }
         }
 
@@ -98,6 +122,20 @@ namespace ViewPics
             pictureBox1.Top = topAreaHeight + margin;
             pictureBox1.Width = this.ClientSize.Width - 2 * margin;
             pictureBox1.Height = this.ClientSize.Height - topAreaHeight - 2 * margin;
+        }
+
+        private int CountLines(string filePath)
+        {
+            int count = 0;
+
+            using (var reader = new StreamReader(filePath))
+            {
+                while (reader.ReadLine() != null)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
