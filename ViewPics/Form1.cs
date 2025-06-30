@@ -95,6 +95,7 @@ namespace ViewPics
         private void LoadImageFiles(string folderPath)
         {
             imageFiles = Directory.GetFiles(folderPath);
+            this.Text = folderPath;
         }
 
         private void DisplayCurrentImage()
