@@ -108,7 +108,11 @@ namespace ViewPics
 
         private void Ctrl_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Left
+                || e.KeyCode == Keys.Right
+                || e.KeyCode == Keys.Up
+                || e.KeyCode == Keys.Down
+                || e.KeyCode == Keys.PageDown)
             {
                 e.IsInputKey = true; // このキーはフォームに渡してほしい、と明示
             }
