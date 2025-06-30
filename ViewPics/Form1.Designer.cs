@@ -56,6 +56,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Enabled = false;
             this.pictureBox1.Location = new System.Drawing.Point(47, 55);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(716, 370);
@@ -103,6 +104,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.readDir);
             this.Controls.Add(this.folderpath);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
