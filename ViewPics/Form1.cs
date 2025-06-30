@@ -12,6 +12,10 @@ namespace ViewPics
         {
             InitializeComponent();
             this.KeyPreview = true;
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.PreviewKeyDown += Ctrl_PreviewKeyDown;
+            }
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
 
@@ -74,6 +78,14 @@ namespace ViewPics
             if (imageFiles.Length > 0 && File.Exists(imageFiles[currentIndex]))
             {
                 pictureBox1.ImageLocation = imageFiles[currentIndex];
+            }
+        }
+
+        private void Ctrl_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
+            {
+                e.IsInputKey = true; // このキーはフォームに渡してほしい、と明示
             }
         }
     }
