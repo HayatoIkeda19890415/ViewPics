@@ -14,6 +14,7 @@ namespace ViewPics
         public Form1()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             this.KeyPreview = true;
             foreach (Control ctrl in this.Controls)
             {
