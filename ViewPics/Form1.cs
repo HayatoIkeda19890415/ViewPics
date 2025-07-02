@@ -9,6 +9,8 @@ namespace ViewPics
         private int currentIndex = 0;
         private int listCount = 0;
         private string listPath = Path.Combine(Application.StartupPath, "list.txt");
+        private int favCount = 0;
+        private string favPath = Path.Combine(Application.StartupPath, "fav.txt");
 
 
         public Form1()
@@ -23,6 +25,7 @@ namespace ViewPics
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
             this.Resize += new System.EventHandler(Form1_Resize);
             listCount = CountLines(listPath);
+            favCount = CountLines(favPath);
         }
 
         private void readDir_Click(object sender, System.EventArgs e)
@@ -33,8 +36,21 @@ namespace ViewPics
 
         private void randomDir_Click(object sender, System.EventArgs e)
         {
-            int targetIndex = new System.Random().Next(1, listCount + 1); // maxを含む
-            using (var reader = new StreamReader(listPath, System.Text.Encoding.GetEncoding(932)))
+            int count = 0;
+            string path = "";
+            if (fav.Checked)
+            {
+                count = favCount;
+                path = favPath;
+            }
+            else
+            {
+                count = listCount;
+                path = listPath;
+            }
+
+            int targetIndex = new System.Random().Next(1, count + 1); // maxを含む
+            using (var reader = new StreamReader(path, System.Text.Encoding.GetEncoding(932)))
             {
                 string line;
                 int readIndex = 0;
@@ -62,8 +78,13 @@ namespace ViewPics
             {
                 prev_Click(sender, e);
             }
-            else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.PageDown)
+            else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.PageDown)
             {
+                randomDir_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                fav.Checked = !fav.Checked;
                 randomDir_Click(sender, e);
             }
         }
