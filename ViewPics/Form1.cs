@@ -6,11 +6,12 @@ namespace ViewPics
     public partial class Form1 : Form
     {
         private string[] imageFiles;
-        private int currentIndex = 0;
+        private int currentPageIndex = 0;
         private int listCount = 0;
         private string listPath = Path.Combine(Application.StartupPath, "list.txt");
         private int favCount = 0;
         private string favPath = Path.Combine(Application.StartupPath, "fav.txt");
+        private int currentListIndex = 0;
 
 
         public Form1()
@@ -50,6 +51,12 @@ namespace ViewPics
             }
 
             int targetIndex = new System.Random().Next(1, count + 1); // maxを含む
+            while (currentListIndex == targetIndex)
+            {
+                targetIndex = new System.Random().Next(1, count + 1);
+            }
+            currentListIndex = targetIndex;
+
             using (var reader = new StreamReader(path, System.Text.Encoding.GetEncoding(932)))
             {
                 string line;
@@ -64,7 +71,7 @@ namespace ViewPics
                     readIndex++;
                 }
             }
-            currentIndex = 0;
+            currentPageIndex = 0;
             readDir_Click(sender, e);
         }
 
@@ -94,9 +101,9 @@ namespace ViewPics
             if (imageFiles == null || imageFiles.Length == 0)
                 return;
 
-            currentIndex++;
-            if (currentIndex >= imageFiles.Length)
-                currentIndex = 0; // 最初に戻る（循環しないならこの行を削除）
+            currentPageIndex++;
+            if (currentPageIndex >= imageFiles.Length)
+                currentPageIndex = 0; // 最初に戻る（循環しないならこの行を削除）
 
             DisplayCurrentImage();
         }
@@ -106,9 +113,9 @@ namespace ViewPics
             if (imageFiles == null || imageFiles.Length == 0)
                 return;
 
-            currentIndex--;
-            if (currentIndex < 0)
-                currentIndex = imageFiles.Length - 1; // 最後に移動
+            currentPageIndex--;
+            if (currentPageIndex < 0)
+                currentPageIndex = imageFiles.Length - 1; // 最後に移動
 
             DisplayCurrentImage();
 
@@ -122,10 +129,10 @@ namespace ViewPics
 
         private void DisplayCurrentImage()
         {
-            if (imageFiles.Length > 0 && File.Exists(imageFiles[currentIndex]))
+            if (imageFiles.Length > 0 && File.Exists(imageFiles[currentPageIndex]))
             {
-                label1.Text = (currentIndex + 1).ToString() + " / " + imageFiles.Length.ToString();
-                pictureBox1.ImageLocation = imageFiles[currentIndex];
+                label1.Text = (currentPageIndex + 1).ToString() + " / " + imageFiles.Length.ToString();
+                pictureBox1.ImageLocation = imageFiles[currentPageIndex];
             }
         }
 
