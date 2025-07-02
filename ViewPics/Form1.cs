@@ -71,8 +71,15 @@ namespace ViewPics
                     readIndex++;
                 }
             }
-            currentPageIndex = 0;
-            readDir_Click(sender, e);
+            if (Directory.GetFiles(folderpath.Text).Length == 0)
+            {
+                randomDir_Click(sender, e);
+            }
+            else
+            {
+                currentPageIndex = 0;
+                readDir_Click(sender, e);
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
